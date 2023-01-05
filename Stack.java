@@ -18,7 +18,6 @@ public class Stack <E> {
     // 스택 맨위 추가
     public void push(E push){
         arr[point] = push;
-        System.out.println(point);
         point ++;
     }
 
