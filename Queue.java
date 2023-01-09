@@ -1,6 +1,6 @@
 public class Queue <T> {
     private T[] arr;
-    private int pointer=0, deletePointer=0;
+    private int tail=0, head=0;
 
     // 생성자 주입
     public Queue(int size){
@@ -11,32 +11,32 @@ public class Queue <T> {
 
     // push
     public void push(T obj){
-        if(this.arr.length-1 < pointer)
-            pointer = 0;
-
-        this.arr[pointer] = obj;
-        pointer ++;
+        if(!isPull()) {
+            this.arr[this.head++] = obj;
+        }
     }
 
     // pop
     public T pop(){
-        if(this.arr.length-1 < deletePointer)
-            deletePointer = 0;
-
-        T data = this.arr[deletePointer];
-
-        this.arr[deletePointer] = null;
-        deletePointer ++;
+        if(isEmpty()){
+            return null;
+        }
+        T data = this.arr[tail];
+        this.arr[tail++] = null;
         return data;
     }
 
     // peek
     public T peek(){
-        return this.arr[pointer];
+        return this.arr[this.head-1];
     }
 
     // isEmpty
     public boolean isEmpty(){
-        return pointer == deletePointer;
+        return head == tail;
+    }
+
+    public boolean isPull(){
+        return tail >= head && head != 0;
     }
 }
