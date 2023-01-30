@@ -1,7 +1,7 @@
 # data-structrue
 자료구조 공부
 
-[참고 사이트](https://glory-day.tistory.com/114).
+[참고 사이트](https://glory-day.tistory.com/114)
 
 - A. Array
 - B. List
